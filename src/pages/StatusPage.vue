@@ -720,7 +720,7 @@ export default {
             // Configure auto-refresh loop
             feedInterval = setInterval(() => {
                 this.updateHeartbeatList();
-            }, Math.max(5, this.config.autoRefreshInterval) * 1000);
+            }, Math.max(1, this.config.autoRefreshInterval) * 1000);
 
             this.updateUpdateTimer();
         }).catch( function (error) {
@@ -810,7 +810,7 @@ export default {
                 const countdown = dayjs.duration(
                     Math.round(
                         this.lastUpdateTime
-                            .add(Math.max(5, this.config.autoRefreshInterval), "seconds")
+                            .add(Math.max(1, this.config.autoRefreshInterval), "seconds")
                             .diff(dayjs())
                         / 1000
                     ), "seconds");
